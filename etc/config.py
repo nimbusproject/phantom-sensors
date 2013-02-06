@@ -12,22 +12,10 @@
 # of the GNU Lesser General Public License along with this program.  If not,
 # see <http://www.gnu.org/licenses/>.
 
-# This 'onload' function will be called by tcollector when it starts up.
-# You can put any code here that you want to load inside the tcollector.
-# This also gives you a chance to override the options from the command
-# line or to add custom sanity checks on their values.
-# You can also use this to change the global tags that will be added to
-# every single data point.  For instance if you have multiple different
-# pools or clusters of machines, you might wanna lookup the name of the
-# pool or cluster the current host belongs to and add it to the tags.
-# Throwing an exception here will cause the tcollector to die before it
-# starts doing any work.
-# Python files in this directory that don't have an "onload" function
-# will be imported by tcollector too, but no function will be called.
-# When this file executes, you can assume that its directory is in
-# sys.path, so you can import other Python modules from this directory
-# or its subdirectories.
+#USER = "myphantomuser"
+#DOMAIN = "mydomain"
 
+# DO NOT EDIT BELOW THIS POINT UNLESS YOU ARE ESPECIALLY CLEVER
 def onload(options, tags):
   """Function called by tcollector when it starts up.
 
@@ -35,4 +23,12 @@ def onload(options, tags):
     options: The options as returned by the OptionParser.
     tags: A dictionnary that maps tag names to tag values.
   """
-  pass
+  try:
+    tags['domain'] = DOMAIN
+  except NameError:
+    pass
+
+  try:
+    tags['user'] = USER
+  except NameError:
+    pass
