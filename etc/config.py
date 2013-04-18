@@ -13,6 +13,7 @@
 # see <http://www.gnu.org/licenses/>.
 
 #USER = "myphantomuser"
+#USER = "mypassword"
 #DOMAIN = "mydomain"
 
 # DO NOT EDIT BELOW THIS POINT UNLESS YOU ARE ESPECIALLY CLEVER
@@ -30,5 +31,10 @@ def onload(options, tags):
 
   try:
     tags['user'] = USER
+  except NameError:
+    pass
+
+  try:
+    tags['password'] = PASSWORD
   except NameError:
     pass
