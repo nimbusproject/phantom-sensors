@@ -13,7 +13,7 @@
 # see <http://www.gnu.org/licenses/>.
 
 #USER = "myphantomuser"
-#USER = "mypassword"
+#PASSWORD = "mypassword"
 #DOMAIN = "mydomain"
 
 # DO NOT EDIT BELOW THIS POINT UNLESS YOU ARE ESPECIALLY CLEVER
